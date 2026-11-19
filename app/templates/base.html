@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ brand.name }}: mobile specialty coffee cart{% endblock %}</title>
+  <meta name="description" content="{{ brand.name }} brings a mobile espresso bar, baristas and a custom drink menu to weddings, offices and events.">
+  <meta name="theme-color" content="#2D5A54">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..800;1,400..600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
+  {% block head %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+  <a class="skip-link" href="#main">Skip to content</a>
+  {% block header %}{% endblock %}
+  <main id="main">
+    {% block content %}{% endblock %}
+  </main>
+  {% block footer %}
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <p class="wordmark wordmark--footer">Key <span class="amp">&amp;</span> Kin</p>
+        <p class="muted">{{ brand.service_area }}.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="mailto:{{ brand.email }}">{{ brand.email }}</a></li>
+        <li><a href="tel:{{ brand.phone_tel }}">{{ brand.phone }}</a></li>
+        <li><a href="https://instagram.com/{{ brand.instagram }}" rel="noopener">@{{ brand.instagram }} on Instagram</a></li>
+      </ul>
+      <p class="muted footer-copy">&copy; {{ current_year }} {{ brand.name }}</p>
+    </div>
+  </footer>
+  {% endblock %}
+  {% block scripts %}{% endblock %}
+  {% block tracking %}
+  <!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/20127626.js"></script>
+  <!-- End of HubSpot Embed Code -->
+  {% endblock %}
+</body>
+</html>

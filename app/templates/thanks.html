@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Inquiry sent: {{ brand.name }}{% endblock %}
+{% block content %}
+<section class="wrap simple-page">
+  <a class="wordmark" href="{{ url_for('public.index') }}">Key <span class="amp">&amp;</span> Kin</a>
+  <h1>Your inquiry is sent.</h1>
+  <p class="lead">We'll reply within two days with availability and a quote. If your event is less than two weeks away, call us at <a href="tel:{{ brand.phone_tel }}">{{ brand.phone }}</a> instead.</p>
+  <p><a class="button button--ghost" href="{{ url_for('public.index') }}">Back to the site</a></p>
+</section>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Something went wrong: {{ brand.name }}{% endblock %}
+{% block content %}
+<section class="wrap simple-page">
+  <a class="wordmark" href="/">Key <span class="amp">&amp;</span> Kin</a>
+  <h1>The server hit an error.</h1>
+  <p class="lead">Try again in a minute. If you were sending an inquiry, you can email <a href="mailto:{{ brand.email }}">{{ brand.email }}</a> instead.</p>
+</section>
+{% endblock %}

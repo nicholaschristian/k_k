@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Log in: {{ brand.name }}{% endblock %}
+{% block body_class %}admin{% endblock %}
+{% block footer %}{% endblock %}
+{% block tracking %}{% endblock %}
+{% block content %}
+<section class="wrap simple-page admin-login">
+  <p class="wordmark">Key <span class="amp">&amp;</span> Kin</p>
+  <h1>Log in to see inquiries</h1>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}<p class="flash flash--{{ category }}">{{ message }}</p>{% endfor %}
+  {% endwith %}
+  <form method="post" class="stack-form">
+    {{ form.hidden_tag() }}
+    {% for e in form.form_errors %}<div class="form-alert" role="alert"><p>{{ e }}</p></div>{% endfor %}
+    <div class="field">{{ form.email.label() }}{{ form.email(autocomplete="username") }}</div>
+    <div class="field">{{ form.password.label() }}{{ form.password(autocomplete="current-password") }}</div>
+    <button class="button" type="submit">Log in</button>
+  </form>
+</section>
+{% endblock %}
